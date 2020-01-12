@@ -1,0 +1,34 @@
+---
+# tasks file for ansible-role-ntp
+
+- name: Install timezone support
+  apt:
+    name: tzdata
+    state: present
+    update_cache: yes
+  when: ansible_os_family == 'Debian'
+
+- name: Install timezone support
+  yum:
+    name: tzdata
+    state: present
+  when: ansible_os_family == 'RedHat'
+
+- name: Set current timezone
+  timezone: 
+    name: "{{ timezone }}"
+  become: true
+
+- name: Set NTP server  
+  template:
+    src: timesyncd.conf.j2
+    dest: /etc/systemd/timesyncd.conf
+    owner: "root"
+    group: "root"
+    mode: "0622"
+  become: true
+
+- name: Enable NTP sync
+  command: timedatectl set-ntp {{ ntp.enable }}
+  become: true
+  when: ntp.enable

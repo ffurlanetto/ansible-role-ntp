@@ -1,0 +1,6 @@
+---
+# handlers file for ansible-role-ntp
+
+- name: restart timesyncd
+  service: name=systemd-timesyncd.service state=restarted
+  become: true

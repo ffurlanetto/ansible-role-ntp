@@ -1,0 +1,8 @@
+---
+# defaults file for ansible-role-ntp
+
+timezone: Europe/Brussels
+
+ntp:
+  enable: yes   ## Allowed values are "yes" / "no"
+  server: time.google.com
