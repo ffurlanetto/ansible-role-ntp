@@ -6,12 +6,14 @@
     name: tzdata
     state: present
     update_cache: yes
+  become: true
   when: ansible_os_family == 'Debian'
 
 - name: Install timezone support
   yum:
     name: tzdata
     state: present
+  become: true
   when: ansible_os_family == 'RedHat'
 
 - name: Set current timezone
