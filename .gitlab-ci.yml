@@ -1,16 +1,11 @@
 ---
 # Latest official molecule image from Red Hat's registry
-image: quay.io/ansible/molecule:latest
-
-# Molecule needs to spawn docker container, so we use Docker in Docker(dind)
-services:
-  - docker:dind
+image: quay.io/ansible/molecule:2.22
 
 # Global variables (applied to all jobs)
 variables:
-  ANSIBLE_GATHER_TIMEOUT: 60
-  PY_COLORS: 1
-  DOCKER_HOST: "tcp://docker:2375"
+  ANSIBLE_GATHER_TIMEOUT: "60"
+  PY_COLORS: "1"
 
 
 # For debugging, show the versions of each binary
