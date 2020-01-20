@@ -30,6 +30,7 @@ variables:
   ANSIBLE_GATHER_TIMEOUT: "60"
   PY_COLORS: "1"
   DOCKER_TLS_CERTDIR: "/certs"
+  DOCKER_HOST: tcp://localhost:2375
 
 # For debugging, show the versions of each binary
 before_script:
