@@ -4,7 +4,7 @@ image: quay.io/ansible/molecule:2.22
 
 # Molecule needs to spawn docker container, so we use Docker in Docker(dind)
 services:
-  - docker:19.03.1-dind
+  - docker:dind
 
 # Global variables (applied to all jobs)
 variables:
