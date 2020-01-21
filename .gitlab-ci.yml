@@ -20,6 +20,6 @@ molecule:
   variables:
     ANSIBLE_GATHER_TIMEOUT: "60"
     PY_COLORS: "1"
-    DOCKER_HOST: "tcp://localhost:2375"
+    DOCKER_HOST: "tcp://docker:2375"
   script:
   - molecule test
